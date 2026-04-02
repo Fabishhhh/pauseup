@@ -72,6 +72,13 @@ nav a:hover {
   color: white;
 }
 
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
 .cta-btn {
   justify-self: end;
   background: linear-gradient(45deg, #3b82f6, #6366f1);
@@ -722,9 +729,21 @@ margin-top: 120px;
 
   nav {
     display: none;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+  }
+  
+    nav.active {
+    display: flex;
   }
 
-  .menu-toggle {
+ .menu-toggle {
     display: block;
   }
 
