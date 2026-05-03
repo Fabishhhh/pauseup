@@ -306,10 +306,13 @@ font-family: 'Poppins', sans-serif;
   margin-bottom: 10px;
 }
 
-.phone-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
+.phone-wrapper iframe {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  border: none;
+  margin-bottom: 20px;
 }
 
 .phone-wrapper::before {
