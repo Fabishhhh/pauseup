@@ -125,7 +125,7 @@ nav a:hover {
   display: inline-block;            
   background: linear-gradient(45deg, #3b82f6, #6366f1);
   border: none;
-  padding: 25px 50px;            
+  padding: 25px 0px;            
   border-radius: 30px;              
   color: white;
   cursor: pointer;
@@ -358,6 +358,10 @@ font-family: 'Poppins', sans-serif;
   margin-bottom: 30px;
 }
 
+.blog h2 {
+  font-size: 42px;
+}
+
 .blog-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -391,6 +395,11 @@ font-family: 'Poppins', sans-serif;
   margin: 120px auto;
   max-width: 700px;
   text-align: center;
+}
+
+.faq h2 {
+  font-size: 42px;
+  margin-bottom: 60px;
 }
 
 .faq-item {
@@ -595,7 +604,6 @@ margin-top: 120px;
 }
 
 .article-page {
-    margin-top: 120px !important; 
     padding-bottom: 80px;
     max-width: 800px !important; /* Largeur lecture confortable */
     margin-left: auto;
