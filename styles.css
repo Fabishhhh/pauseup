@@ -4,17 +4,15 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Segoe UI", sans-serif;
-  max-width: 100%;
 }
 
-html {
+html, body {
   overflow-x: hidden;
 }
 
 body {
   background: radial-gradient(circle at top left, #1a1d4f, #0a0b17);
   color: white;
-  overflow-x: hidden;
 }
 
 .container {
@@ -668,18 +666,26 @@ margin-top: 120px;
     }
 
     /* Si menu ouvert, les barres passent en blanc pour le contraste sur fond noir */
-    .nav.active ~ .menu-toggle .bar,
+    nav.active {
+       display: flex !important;
+    }
 
     .menu-toggle {
-        display: flex !important;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 21px;
-        cursor: pointer;
-        z-index: 1001;
-        margin-left: auto; /* Pousse le burger bien à droite */
+          display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 1001;
     }
+
+    .bar {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  border-radius: 5px;
+}
 
     nav {
   position: fixed;
@@ -688,11 +694,8 @@ margin-top: 120px;
   right: 0; /* IMPORTANT */
   width: 100%;
   padding: 15px 20px;
-  box-sizing: border-box; /* IMPORTANT */
-    }
-
-    nav.active {
-        display: flex;
+  box-sizing: border-box;
+  display: none;
     }
 
     nav a {
@@ -700,7 +703,12 @@ margin-top: 120px;
         font-size: 24px;
         color: white;
         text-decoration: none;
+        display: none;
     }
+
+      nav.active a {
+    display: block;
+  }
 
     .navbar .cta-btn {
         display: none !important; /* Cache le bouton bleu en haut */
