@@ -635,155 +635,130 @@ margin-top: 120px;
 .article-footer p {
     margin-bottom: 40px !important;
 }
-@media (max-width: 1360px) { 
-    .exercices-grid {
-        grid-template-columns: 1fr; /* Force une seule colonne */
-        max-width: 600px; /* On réduit la largeur max pour que ce soit joli en colonne */
-        margin: 0 auto;
-    }
-    
-    .card {
-        width: 100%; /* La carte prend toute la largeur du conteneur */
-    }
-}
-
-@media (max-width: 992px) {
-.navbar {
-        padding: 15px 20px;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        backdrop-filter: blur(10px);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    /* Force le burger en NOIR */
-    .menu-toggle .bar {
-        background-color: #ffffff !important;
-    }
-
-    /* Si menu ouvert, les barres passent en blanc pour le contraste sur fond noir */
-    nav.active {
-       display: flex !important;
-    }
-
-    .menu-toggle {
-          display: flex !important;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 35px;
-  height: 25px;
-  cursor: pointer;
-  z-index: 1001;
-    }
-
-    .bar {
-  width: 100%;
-  height: 3px;
-  background-color: white;
-  border-radius: 5px;
-}
-
-    nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0; /* IMPORTANT */
-  width: 100%;
-  padding: 15px 20px;
-  box-sizing: border-box;
-  display: none;
-    }
-
-    nav a {
-        margin: 20px 0;
-        font-size: 24px;
-        color: white;
-        text-decoration: none;
-        display: none;
-    }
-
-      nav.active a {
-    display: block;
+@media (max-width: 1360px) {
+  .exercices-grid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
-    .navbar .cta-btn {
-        display: none !important; /* Cache le bouton bleu en haut */
-    }
-
-    /* 2. CONTENU & GRILLES (PASSAGE EN 1 COLONNE) */
-    .hero {
-        padding-top: 120px !important;
-        text-align: center;
-    }
-
-    /* Force toutes les grilles (Bénéfices, Exercices, Blog) en 1 seule colonne */
-    .features-grid, 
-    .exercices-grid, 
-    .blog-grid {
-        display: grid !important;
-        grid-template-columns: 1fr !important; 
-        gap: 25px;
-        padding: 0 20px;
-        max-width: 600px; /* Évite que les cartes soient trop larges sur tablettes */
-        margin: 0 auto;
-    }
-
-    .card, .feature, .stat-box {
-        width: 100% !important;
-    }
-
-    /* 3. CENTRAGE DU FOOTER */
-    .footer-grid, 
-    .footer-links, 
-    .footer-col {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-        gap: 20px;
-    }
-
-    .footer-brand {
-        text-align: center;
-        margin-bottom: 30px;
-    }
+  .card {
+    width: 100%;
+  }
 }
+/* =========================================================
+   <= 992px (tablettes + mobile large)
+   IMPORTANT : NE TOUCHE PAS NAVBAR ICI (géré dans index.css)
+   ========================================================= */
+
+@media (max-width: 992px) {
+
+  /* Grilles en 1 colonne */
+  .features-grid,
+  .exercices-grid,
+  .blog-grid {
+    grid-template-columns: 1fr !important;
+    gap: 25px;
+    padding: 0 20px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Cards full width */
+  .card,
+  .feature,
+  .stat-box {
+    width: 100% !important;
+  }
+
+  /* Layout sections */
+  .content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Hero uniquement layout */
+  .hero {
+    padding-top: 120px !important;
+    text-align: center;
+  }
+
+  /* Footer */
+  .footer-grid,
+  .footer-links,
+  .footer-col {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+}
+/* =========================================================
+   <= 768px (mobile standard)
+   ========================================================= */
 
 @media (max-width: 768px) {
 
-    .bg-blob {
+  .bg-blob {
     display: none;
   }
 
-    .footer.container {
-flex-direction: column; 
-    align-items: center;   
+  .footer.container {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    gap: 40px;              
+    gap: 40px;
     padding: 40px 20px;
-    }
+  }
 
-    .footer-left {
+  .footer-left {
     max-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+  }
 
-    .footer-links {
-display: grid;
-    grid-template-columns: 1fr; 
+  .footer-links {
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 30px;
     width: 100%;
-    }
+  }
 
-    .footer-desc { 
-text-align: center;     
-    margin-top: 15px;
-    line-height: 1.6;
-    }
+  .phone-wrapper iframe {
+    width: 100%;
+    height: 250px;
+  }
+}
+/* =========================================================
+   <= 480px (petits smartphones)
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .cta h1 {
+    font-size: 26px !important;
+  }
+
+  .cta-features {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .card {
+    padding: 20px;
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
 }
