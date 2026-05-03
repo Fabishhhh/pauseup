@@ -3,11 +3,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Segoe UI", sans-serif;
-  max-width: 100%;
-}
-
-html {
-  overflow-x: hidden;
 }
 
 body {
@@ -83,8 +78,6 @@ nav a:hover {
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
-    position: relative;
-    z-index: 2000;
 }
 
 .menu-toggle.active .bar:nth-child(1) {
@@ -704,20 +697,16 @@ margin-top: 120px;
         background-color: #000000 !important;
     }
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0; /* IMPORTANT */
-  width: 100%;
-  padding: 15px 20px;
-  box-sizing: border-box; /* IMPORTANT */
+        padding: 15px 20px;
+        position: fixed;
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        width: 100%;
+        top: 0;
+        display: flex !important;
+        justify-content: space-between; /* Pousse le logo à gauche et le burger à droite */
+        align-items: center;
     }
-
-    @media (max-width: 992px) {
-  .navbar.container {
-    max-width: 100%;
-  }
-}
 
     .menu-toggle {
         display: flex !important;
@@ -842,13 +831,8 @@ nav {
         justify-content: space-between;
         align-items: center;
         padding: 20px;
-            width: 100%;
-    padding: 15px 20px;
     }
 
-    .bg-blob {
-        display: none;
-    }
     .menu-toggle {
         display: block; 
         order: 2;
@@ -857,9 +841,7 @@ nav {
       display: none; 
     } 
 
-      .navbar.container {
-    max-width: 100%;
-  }
+    @media (max-width: 768px) {
   .hero {
     padding: 80px 20px;
   }
@@ -923,6 +905,7 @@ text-align: center;
     margin-top: 15px;
     line-height: 1.6;
     }
+}
 
 .menu-toggle {
         z-index: 1001; 
