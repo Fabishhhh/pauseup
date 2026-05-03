@@ -708,6 +708,12 @@ margin-top: 120px;
         align-items: center;
     }
 
+    @media (max-width: 992px) {
+  .navbar.container {
+    max-width: 100%;
+  }
+}
+
     .menu-toggle {
         display: flex !important;
         flex-direction: column;
@@ -831,6 +837,8 @@ nav {
         justify-content: space-between;
         align-items: center;
         padding: 20px;
+            width: 100%;
+    padding: 15px 20px;
     }
 
     .menu-toggle {
@@ -840,6 +848,14 @@ nav {
     .cta-btn { 
       display: none; 
     } 
+
+      .navbar.container {
+    max-width: 100%;
+  }
+  .hero {
+    padding: 80px 20px;
+  }
+}
 
     /* --- TITRES SECTIONS --- */
     .features h2, .stats h2, .social h2, .cta h1, .interface h2 {
