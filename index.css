@@ -83,6 +83,8 @@ nav a:hover {
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
+    position: relative;
+    z-index: 2000;
 }
 
 .menu-toggle.active .bar:nth-child(1) {
