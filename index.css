@@ -73,10 +73,29 @@ nav a:hover {
 }
 
 .menu-toggle {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: white;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
 }
 
 .cta-btn {
@@ -666,128 +685,260 @@ margin-top: 120px;
   color: #3b82f6;
 }
 
-@media (max-width: 900px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-  }
+/* ============================================================
+   RESPONSIVE DESIGN - BLOC MAÎTRE (OPTIMISÉ SEO)
+   ============================================================ */
 
-  .hero h1 {
-    font-size: 40px;
-  }
+/* TABLETTES & MOBILE (Sous 992px) */
+@media (max-width: 992px) {
 
-  .buttons {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+  nav a {
+        display: none; 
+    }
 
-  .content {
-    flex-direction: column;
-    gap: 50px;
-    text-align: center;
-  }
+    /* 2. On affiche les liens UNIQUEMENT quand le menu est ouvert */
+    nav.active a {
+        display: block !important;
+    }
 
-  .left {
-    align-items: center;
-  }
+    /* 3. On cache le bouton bleu de la navbar en mobile */
+    .navbar .cta-btn {
+        display: none !important;
+    }
 
-  .feature {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+    /* 4. On force le burger en NOIR */
+    .menu-toggle .bar {
+        background-color: #000000 !important;
+    }
+.navbar {
+        padding: 15px 20px;
+        position: fixed;
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        width: 100%;
+        top: 0;
+        display: flex !important;
+        justify-content: space-between; /* Pousse le logo à gauche et le burger à droite */
+        align-items: center;
+    }
 
-  .features h2,
-  .stats h2,
-  .social h2 {
-    font-size: 36px;
-  }
+    .menu-toggle {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        background-color: #000000;
+        margin-left: auto; 
+        z-index: 1001;
+    }
 
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .bar {
+        width: 100%;
+        height: 3px;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+    }
+
+    /* --- HERO SECTION --- */
+    .hero {
+        padding-top: 150px !important; 
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .cards {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* Centre les cartes dans la section */
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    .card, .feature {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* Centre l'émoji et le texte horizontalement */
+        text-align: center !important;  /* Aligne le texte au milieu */
+        max-width: 350px;
+        width: 100%;
+    }
+    .card h3, .card p, .feature h3, .feature p {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    .hero h1 { font-size: 32px; }
+    .subtitle { font-size: 20px; }
+    
+    .buttons { 
+        display: flex;
+        flex-direction: column; 
+        gap: 15px;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;           
+        text-align: center;
+    }
+
+    /* --- SECTIONS --- */
+    .features, .interface, .cta {
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
 }
 
+nav {
+        display: none; /* Toujours caché par défaut */
+        flex-direction: column;
+        justify-content: center; /* Centre les liens verticalement */
+        align-items: center;     /* Centre les liens horizontalement */
+        
+        /* --- EFFET PLEIN ÉCRAN --- */
+        position: fixed; 
+        top: 0;
+        left: 0;
+        width: 100vw;  /* 100% de la largeur de la vue */
+        height: 100vh; /* 100% de la hauteur de la vue */
+        background: rgba(10, 11, 23, 0.98); /* Couleur sombre très opaque */
+        
+        z-index: 999;  /* Juste en dessous du bouton burger si besoin */
+        transition: all 0.3s ease-in-out;
+    }
+    nav.active { 
+      display: flex; 
+    } 
+
+    nav a {
+        margin: 20px 0;
+        font-size: 24px; /* On grossit un peu le texte pour le confort */
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+    }
+}
+
+
+/* MOBILE SMARTPHONE (Sous 768px) */
 @media (max-width: 768px) {
-  .cta h1 {
-    font-size: 32px;
-  }
+    /* --- NAVBAR & MENU BURGER --- */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+    }
 
-  .cta-features {
-    flex-direction: column;
-    gap: 10px;
-  }
+    .menu-toggle {
+        display: block; 
+        order: 2;
+    }
+    .cta-btn { 
+      display: none; 
+    } 
 
-  .interface h2 {
-    font-size: 32px;
-  }
+    /* --- TITRES SECTIONS --- */
+    .features h2, .stats h2, .social h2, .cta h1, .interface h2 {
+        font-size: 30px !important;
+    }
 
-  .phone-wrapper iframe {
-    width: 100%;
-    height: 250px;
-  }
-
-  nav {
-    display: none;
-    flex-direction: column;
+    .features-tags {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; /* Deux colonnes de taille égale */
     gap: 15px;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.9);
-    padding: 20px;
-  }
-  
-    nav.active {
+    width: 100%;
+    max-width: 500px; /* Évite qu'ils soient trop larges sur tablette */
+    margin: 0 auto;
+}
+
+.tag {
+    width: 100%;       /* Prend toute la place de sa cellule de grille */
+    text-align: center;
+    padding: 15px 10px; /* Plus compact pour mobile */
+    font-size: 13px;    /* Un peu plus petit pour éviter que le texte passe sur 2 lignes */
     display: flex;
-  }
-
- .menu-toggle {
-    display: block;
-  }
-
-  .navbar {
-    grid-template-columns: 1fr auto;
-  }
-
-  .cta-btn {
-    display: none;
-  }
-
-  .footer.container {
-    flex-direction: column;
-    text-align: center;
     align-items: center;
-  }
-
-  .footer-desc {
-    text-align: center;
-  }
-
-  .footer-links {
     justify-content: center;
-  }
+    min-height: 60px;   /* Force la même hauteur pour tous */
 }
 
-@media (max-width: 600px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
+    .phone-wrapper iframe {
+        width: 100%;
+        height: 250px; 
+    }
 
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  .hero {
+    /* --- FOOTER AÉRÉ --- */
+    .footer.container {
+flex-direction: column; 
+    align-items: center;   
+    text-align: center;
+    gap: 40px;              
     padding: 40px 20px;
-  }
+    }
 
-  .cta h1 {
-    font-size: 28px;
-  }
-
-  .chart {
-    height: 120px;
-  }
+    .footer-left {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+    .footer-links {
+display: grid;
+    grid-template-columns: 1fr; 
+    gap: 30px;
+    width: 100%;
+    }
+
+    .footer-desc { 
+text-align: center;     
+    margin-top: 15px;
+    line-height: 1.6;
+    }
+}
+
+.menu-toggle {
+        z-index: 1001; 
+        position: relative; /* Pour que le z-index fonctionne */
+    }
+
+/* PETITS MOBILES (Sous 480px) */
+@media (max-width: 480px) {
+    .hero h1 { font-size: 28px; }
+    
+    .cta h1 { font-size: 26px !important; }
+
+    .cta-features {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .card { 
+        padding: 20px; 
+        width: 100%;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%; /* Boutons pleine largeur pour faciliter le clic au pouce */
+        text-align: center;
+    }
+  }
