@@ -12,6 +12,7 @@ body {
 }
 
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -190,12 +191,6 @@ nav a:hover {
   padding: 100px 20px;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
 .features h2 {
   font-size: 48px;
   margin-bottom: 10px;
@@ -284,12 +279,6 @@ nav a:hover {
   text-align: center;
 }
 
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-
 .interface h2 {
   font-size: 48px;
   margin-bottom: 10px;
@@ -364,12 +353,6 @@ nav a:hover {
 
 .stats {
   padding: 120px 20px;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
 }
 
 .stats h2 {
@@ -569,13 +552,6 @@ nav a:hover {
   );
   filter: blur(100px);
   z-index: 0;
-}
-
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 900px;
-  margin: 0 auto;
 }
 
 .badge {
